@@ -1462,3 +1462,483 @@ api_key = "sk-abc123xyz"  # ai cũng thấy được!
 *📝 Viết bởi **Capybara** 🦫 cho **Tiểu Dươngg***
 *📅 Cập nhật lần cuối: 2026-10-10*
 *💡 Thấy thiếu gì thì bảo tớ bổ sung nhé!*
+
+---
+
+## 19. Debug Code Trong Colab
+
+### 19.1 Dùng `pdb` (Python Debugger)
+
+```python
+import pdb
+
+def chia(a, b):
+    pdb.set_trace()  # dừng tại đây để debug
+    return a / b
+
+chia(10, 2)
+```
+
+Khi chạy, Colab hiện prompt `(Pdb)` — gõ:
+- `n`: chạy dòng tiếp theo (next)
+- `s`: đi vào trong hàm (step into)
+- `c`: chạy tiếp đến breakpoint tiếp theo (continue)
+- `p bien`: in giá trị biến (print)
+- `l`: hiện code xung quanh (list)
+- `q`: thoát debugger (quit)
+
+### 19.2 Dùng `breakpoint()` (Python 3.7+)
+
+```python
+def tinh_tong(numbers):
+    tong = 0
+    for n in numbers:
+        breakpoint()  # dừng ở đây
+        tong += n
+    return tong
+
+tinh_tong([1, 2, 3])
+```
+
+### 19.3 In Debug Thông Minh
+
+```python
+# In kèm tên biến (Python 3.8+)
+x = 42
+print(f"{x=}")  # Output: x=42
+
+# In nhiều biến
+a, b, c = 1, 2, 3
+print(f"{a=}, {b=}, {c=}")
+```
+
+### 19.4 Xem Stack Trace Đầy Đủ
+
+```python
+import traceback
+
+try:
+    1 / 0
+except Exception as e:
+    traceback.print_exc()  # in đầy đủ stack trace
+```
+
+### 19.5 `%debug` Magic (Sau Khi Lỗi)
+
+```python
+# Chạy code bị lỗi trước
+def loi():
+    x = [1, 2, 3]
+    return x[10]
+
+loi()  # IndexError
+```
+
+```
+# Cell tiếp theo: vào debugger tại điểm lỗi
+%debug
+```
+
+---
+
+## 20. Dùng Colab Với Git Chi Tiết
+
+### 20.1 Cấu Hình Git Lần Đầu
+
+```
+!git config --global user.name "Ten Cua Ban"
+!git config --global user.email "email@example.com"
+!git config --global init.defaultBranch main
+```
+
+### 20.2 Quy Trình Làm Việc Đầy Đủ
+
+```python
+import getpass
+import os
+
+# 1. Nhập thông tin (1 lần duy nhất)
+TOKEN = getpass.getpass("GitHub PAT: ")
+USER = "ten_github"
+REPO = "ten_repo"
+BRANCH = "main"
+
+# 2. Clone (nếu chưa có)
+if not os.path.exists(REPO):
+    !git clone https://{TOKEN}@github.com/{USER}/{REPO}.git
+    print("✅ Clone xong")
+else:
+    print("📁 Repo đã tồn tại")
+
+# 3. Vào thư mục repo
+%cd {REPO}
+
+# 4. Pull code mới nhất
+!git pull origin {BRANCH}
+```
+
+```python
+# 5. Làm việc với file...
+# (code của bạn ở đây)
+
+# 6. Kiểm tra thay đổi
+!git status
+!git diff --stat
+```
+
+```python
+# 7. Commit và push
+!git add .
+!git commit -m "Mô tả thay đổi"
+!git push https://{TOKEN}@github.com/{USER}/{REPO}.git {BRANCH}
+print("✅ Push xong!")
+```
+
+### 20.3 Làm Việc Với Nhánh (Branch)
+
+```
+# Tạo nhánh mới
+!git checkout -b tinh-nang-moi
+
+# Chuyển nhánh
+!git checkout main
+
+# Xem danh sách nhánh
+!git branch -a
+
+# Gộp nhánh
+!git checkout main
+!git merge tinh-nang-moi
+
+# Xóa nhánh
+!git branch -d tinh-nang-moi
+```
+
+### 20.4 Xử Lý Conflict
+
+```
+# Khi pull bị conflict:
+!git status                    # xem file nào conflict
+# → sửa file bằng tay
+!git add file_bi_conflict.py
+!git commit -m "Resolve conflict"
+!git push
+```
+
+### 20.5 Lưu PAT An Toàn Giữa Các Cell
+
+```python
+# Cell 1: nhập 1 lần
+import getpass, os
+os.environ['GH_TOKEN'] = getpass.getpass("PAT: ")
+print("✅ Đã lưu token")
+```
+
+```python
+# Cell sau: dùng trực tiếp (không cần nhập lại)
+import os
+TOKEN = os.environ['GH_TOKEN']
+!git push https://{TOKEN}@github.com/user/repo.git main
+```
+
+### 20.6 .gitignore Cho Colab
+
+```
+# Tạo file .gitignore
+%%writefile .gitignore
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.log
+.DS_Store
+data/
+*.pt
+*.pth
+*.h5
+```
+
+---
+
+## 21. Tạo Snippet Riêng
+
+### 21.1 Snippet Là Gì?
+
+Snippet là đoạn code mẫu lưu sẵn, chèn nhanh bằng 1 click. Colab có sẵn nhiều snippet ở panel 🧩.
+
+### 21.2 Dùng Snippet Có Sẵn
+
+1. Bấm biểu tượng 🧩 ở thanh bên trái
+2. Tìm snippet (ví dụ: "Upload files", "Mount Drive")
+3. Bấm **Chèn** → code tự động thêm vào cell
+
+### 21.3 Các Snippet Hữu Ích Có Sẵn
+
+| Snippet | Chức năng |
+|---------|-----------|
+| Importing libraries | Import numpy, pandas, matplotlib |
+| Uploading files | Code upload file |
+| Downloading files | Code download file |
+| Mounting Google Drive | Kết nối Drive |
+| GPU info | Kiểm tra GPU |
+| Forms | Tạo form tương tác |
+
+### 21.4 Tạo Template Notebook Riêng
+
+Vì Colab chưa hỗ trợ tạo snippet tùy chỉnh, bạn có thể:
+
+1. Tạo 1 notebook chứa các cell mẫu hay dùng
+2. Lưu vào Drive với tên `📋 Template của tôi`
+3. Mỗi lần cần → **Tệp** → **Mở notebook** → Copy cell từ template
+
+**Ví dụ template:**
+
+```python
+# 📋 Cell 1: Setup cơ bản
+!pip install -q numpy pandas matplotlib seaborn
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+print("✅ Setup xong")
+```
+
+```python
+# 📋 Cell 2: Kết nối Drive
+from google.colab import drive
+drive.mount('/content/drive')
+```
+
+```python
+# 📋 Cell 3: Kiểm tra GPU
+import torch
+print("GPU:", torch.cuda.is_available())
+if torch.cuda.is_available():
+    print(torch.cuda.get_device_name(0))
+```
+
+---
+
+## 22. Colab Enterprise
+
+### 22.1 Colab Enterprise Là Gì?
+
+Phiên bản Colab dành cho doanh nghiệp, tích hợp với **Google Cloud Vertex AI**. Khác với Colab thường:
+
+| Tính năng | Colab thường | Colab Enterprise |
+|-----------|--------------|------------------|
+| Chạy ở đâu | Server Google chung | GCP project của công ty |
+| Bảo mật | Cơ bản | Enterprise-grade, VPC |
+| Tích hợp | Google Drive | BigQuery, Vertex AI, GCS |
+| Quản lý | Cá nhân | Admin quản lý tập trung |
+| Giá | Miễn phí / $10/tháng | Tính theo giờ sử dụng GCP |
+
+### 22.2 Khi Nào Cần Enterprise?
+
+- Công ty yêu cầu dữ liệu không ra khỏi VPC
+- Cần tích hợp với BigQuery, Vertex AI Pipelines
+- Cần admin quản lý quyền truy cập
+- Cần audit log đầy đủ
+
+### 22.3 Tài Liệu
+
+- https://cloud.google.com/colab/docs
+
+---
+
+## 23. Tích Hợp Với Công Cụ Khác
+
+### 23.1 Hugging Face
+
+```python
+# Đăng nhập
+from huggingface_hub import login
+import getpass
+login(token=getpass.getpass("HF Token: "))
+```
+
+```python
+# Tải model
+from transformers import pipeline
+classifier = pipeline("sentiment-analysis")
+result = classifier("Tôi rất thích Colab!")
+print(result)
+```
+
+```python
+# Đẩy model lên Hub
+from huggingface_hub import HfApi
+api = HfApi()
+api.upload_file(
+    path_or_fileobj="model.pt",
+    path_in_repo="model.pt",
+    repo_id="username/ten-model",
+)
+```
+
+### 23.2 Weights & Biases (Theo Dõi Train)
+
+```
+!pip install -q wandb
+```
+
+```python
+import wandb
+wandb.login()  # nhập API key
+
+wandb.init(project="ten-project", name="lan-chay-1")
+
+# Trong vòng lặp train:
+for epoch in range(10):
+    loss = ...  # tính loss
+    wandb.log({"loss": loss, "epoch": epoch})
+
+wandb.finish()
+```
+
+### 23.3 Kaggle
+
+```python
+# Dùng API Kaggle để tải dataset
+import getpass, os, json
+
+# Tạo file kaggle.json
+os.makedirs('/root/.kaggle', exist_ok=True)
+kaggle_config = {
+    "username": input("Kaggle username: "),
+    "key": getpass.getpass("Kaggle API key: ")
+}
+with open('/root/.kaggle/kaggle.json', 'w') as f:
+    json.dump(kaggle_config, f)
+!chmod 600 /root/.kaggle/kaggle.json
+```
+
+```
+!pip install -q kaggle
+!kaggle datasets download -d username/ten-dataset
+!unzip ten-dataset.zip
+```
+
+### 23.4 Ngrok (Expose Server)
+
+```
+!pip install -q pyngrok
+```
+
+```python
+from pyngrok import ngrok
+import getpass
+
+ngrok.set_auth_token(getpass.getpass("Ngrok token: "))
+
+# Chạy app ở port 8000
+# !python app.py &  (chạy nền trước)
+
+url = ngrok.connect(8000)
+print(f"🌐 Public URL: {url}")
+```
+
+---
+
+## 24. Tối Ưu Hiệu Suất
+
+### 24.1 Chọn Đúng Runtime
+
+| Task | Runtime nên dùng |
+|------|------------------|
+| Học Python cơ bản | CPU |
+| Xử lý dữ liệu pandas | CPU (RAM cao) |
+| Train CNN / Transformer | GPU |
+| Train LLM lớn | GPU Pro / TPU |
+| Inference đơn giản | CPU |
+
+### 24.2 Tăng Tốc Data Loading (PyTorch)
+
+```python
+from torch.utils.data import DataLoader
+
+loader = DataLoader(
+    dataset,
+    batch_size=64,
+    num_workers=2,      # dùng 2 worker để load song song
+    pin_memory=True,    # nhanh hơn khi dùng GPU
+    shuffle=True
+)
+```
+
+### 24.3 Mixed Precision (Train Nhanh Hơn)
+
+```python
+import torch
+from torch.cuda.amp import autocast, GradScaler
+
+scaler = GradScaler()
+
+for data, target in loader:
+    data, target = data.cuda(), target.cuda()
+
+    with autocast():  # tự động dùng FP16
+        output = model(data)
+        loss = criterion(output, target)
+
+    scaler.scale(loss).backward()
+    scaler.step(optimizer)
+    scaler.update()
+    optimizer.zero_grad()
+```
+
+### 24.4 Cache Dữ Liệu
+
+```python
+# Tải 1 lần, lưu vào Drive, lần sau đọc từ Drive
+import os
+
+CACHE = "/content/drive/MyDrive/cache/dataset.pt"
+
+if os.path.exists(CACHE):
+    print("📂 Đọc từ cache")
+    data = torch.load(CACHE)
+else:
+    print("⬇️ Tải mới...")
+    data = tai_du_lieu()  # hàm tải của bạn
+    torch.save(data, CACHE)
+    print("💾 Đã lưu cache")
+```
+
+---
+
+## 25. Câu Hỏi Thường Gặp (FAQ)
+
+### Notebook của tôi bị mất, làm sao?
+
+- Kiểm tra **Tệp** → **Lịch sử sửa đổi** (nếu lưu trên Drive)
+- Kiểm tra thùng rác Google Drive
+- Nếu chưa từng lưu → không khôi phục được 😢
+
+### Tại sao GPU lúc có lúc không?
+
+GPU miễn phí được chia sẻ giữa nhiều người. Giờ cao điểm (tối US) thường hết. Thử vào sáng sớm giờ VN.
+
+### Code chạy lâu có bị ngắt không?
+
+- Tối đa ~12h liên tục
+- Nếu không tương tác 90 phút → tự ngắt
+- Colab Pro: chạy nền được khi tắt trình duyệt
+
+### Làm sao chạy 2 notebook cùng lúc?
+
+Mỗi notebook có runtime riêng. Mở tab mới → notebook mới → kết nối riêng. Nhưng GPU có thể bị chia sẻ.
+
+### File upload lên Colab lưu ở đâu?
+
+`/content/` — nhưng sẽ **mất** khi runtime ngắt. Muốn giữ → lưu vào Drive.
+
+### Colab có dùng được cho đồ án/báo cáo không?
+
+Có! Rất phù hợp:
+- Vừa code vừa giải thích bằng Markdown
+- Vẽ biểu đồ trực tiếp
+- Chia sẻ link cho giảng viên
+- Xuất PDF để nộp
+
+---
+
+*Cập nhật thêm ngày 2026-10-10 — Tổng cộng 25 phần! 📚*
