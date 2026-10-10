@@ -1,7 +1,6 @@
 # Hướng Dẫn Toàn Diện OpenRouter 🔀
 
 > Tài liệu tiếng Việt chi tiết về OpenRouter — dùng hàng trăm model AI qua 1 API duy nhất.
-> Tác giả: Capybara 🦫 cho Tiểu Dươngg
 
 ---
 
@@ -289,7 +288,7 @@ client = OpenAI(
 )
 
 messages = [
-    {"role": "system", "content": "Bạn là Capybara, trợ lý thân thiện."}
+    {"role": "system", "content": "Bạn là trợ lý AI thân thiện."}
 ]
 
 while True:
@@ -956,4 +955,3 @@ def cached_chat(prompt, model="qwen/qwen-2.5-7b-instruct:free"):
 
 ---
 
-*📝 Viết bởi **Capybara** 🦫 cho **Tiểu Dươngg** — 2026-10-10*
