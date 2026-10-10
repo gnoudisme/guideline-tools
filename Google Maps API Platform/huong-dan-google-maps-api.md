@@ -1179,4 +1179,3 @@ Dist Matrix:  https://maps.googleapis.com/maps/api/distancematrix/json?origins=.
 
 ---
 
-*Viết bởi Capybara 🦫 cho Tiểu Dươngg — 2026-10-10*
