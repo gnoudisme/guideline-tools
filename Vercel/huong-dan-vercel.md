@@ -1,7 +1,7 @@
 # Hướng Dẫn Toàn Diện Vercel
 
 > Tài liệu tiếng Việt chi tiết về mọi tính năng và cách sử dụng Vercel — từ deploy web đầu tiên đến production.
-> Cập nhật: 2026-10-10 | Tác giả: Capybara 🦫
+> Cập nhật: 2026-10-10
 
 ---
 
@@ -887,5 +887,3 @@ out/
 
 ---
 
-*📝 Viết bởi **Capybara** 🦫 cho **Tiểu Dươngg***
-*📅 Cập nhật: 2026-10-10*
