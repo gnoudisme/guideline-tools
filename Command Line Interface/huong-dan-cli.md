@@ -2,7 +2,7 @@
 
 > 📖 Dành cho người mới bắt đầu hoàn toàn. Đọc từ đầu đến cuối, làm theo từng ví dụ, bạn sẽ tự tin dùng Terminal như một lập trình viên thực thụ.
 >
-> **Tác giả:** Capybara 🦫 · Cập nhật: 2026-10-10
+> Cập nhật: 2026-10-10
 
 ---
 
@@ -67,7 +67,7 @@ for f in IMG_*.jpg; do mv "$f" "anh-${f#IMG_}"; done
 4. **Tự động hóa:** viết script một lần, máy tự chạy mỗi ngày.
 5. **Hiểu máy tính sâu hơn:** file, quyền, process, mạng hoạt động ra sao — không còn là "hộp đen".
 
-> 💡 **Lời khuyên của Capybara:** Đừng cố nhớ hết mọi lệnh. Nhớ ~20 lệnh core trong tài liệu này là đủ dùng 90% công việc hàng ngày. Còn lại thì tra Google hoặc gõ `man <lệnh>`.
+> 💡 **Mẹo:** Đừng cố nhớ hết mọi lệnh. Nhớ ~20 lệnh core trong tài liệu này là đủ dùng 90% công việc hàng ngày. Còn lại thì tra Google hoặc gõ `man <lệnh>`.
 
 ---
 
@@ -970,10 +970,10 @@ export PATH="$HOME/cong-cu-cua-toi:$PATH"
 ### 11.3. `export` — Tạo biến môi trường
 
 ```bash
-TEN="Tiểu Dươngg"       # biến thường — chỉ shell hiện tại dùng
-echo $TEN               # Tiểu Dươngg
+TEN="An"       # biến thường — chỉ shell hiện tại dùng
+echo $TEN               # bạn
 
-export TEN="Tiểu Dươngg"  # biến MÔI TRƯỜNG — chương trình con cũng thấy
+export TEN="An"  # biến MÔI TRƯỜNG — chương trình con cũng thấy
 export API_URL="https://api.example.com"
 export PORT=3000
 ```
@@ -1118,7 +1118,7 @@ chao_hoi() {
     echo "Xin chào $TEN! 👋"
 }
 chao_hoi "Dươngg"
-chao_hoi "Capybara"
+chao_hoi "Bạn"
 
 cong() { echo $(($1 + $2)); }   # "return" bằng echo + $()
 echo "5 + 3 = $(cong 5 3)"
@@ -1727,6 +1727,5 @@ Chúc mừng bạn đã đi hết tài liệu! 🎉 Giờ bạn đã nắm: đi�
 3. **Học Vim hoặc Nano** — soạn thảo ngay trong terminal
 4. **Thuê 1 VPS rẻ** — vọc server thật là cách học nhanh nhất
 
-> 💬 Có thắc mắc? Cứ hỏi Capybara 🦫 — tớ luôn ở đây!
 
 *Hết tài liệu. Happy hacking!* ⌨️🚀
