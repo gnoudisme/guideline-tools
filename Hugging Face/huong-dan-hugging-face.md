@@ -1,7 +1,6 @@
 # Hướng Dẫn Toàn Diện Hugging Face 🤗
 
 > Tài liệu tiếng Việt chi tiết về Hugging Face — từ tạo tài khoản đến fine-tune model AI.
-> Tác giả: Capybara 🦫 cho Tiểu Dươngg
 
 ---
 
@@ -1176,4 +1175,3 @@ pip install transformers==4.40.0 datasets==2.19.0
 
 ---
 
-*📝 Viết bởi **Capybara** 🦫 cho **Tiểu Dươngg** — 2026-10-10*
