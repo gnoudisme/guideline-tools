@@ -153,7 +153,7 @@ Trong 1 branch có thể có nhiều database:
 3. Copy string dạng:
 
 ```
-postgresql://neondb_owner:AbCdEfGh1234@ep-cool-darkness-123456.ap-southeast-1.aws.neon.tech/neondb?sslmode=require
+postgresql://neondb_owner:[PASSWORD]@ep-xxxx-xxxx.ap-southeast-1.aws.neon.tech/neondb?sslmode=require
 ```
 
 Cấu trúc:
@@ -171,7 +171,7 @@ postgresql://[user]:[password]@[endpoint-host]/[dbname]?sslmode=require
 sudo apt install -y postgresql-client
 
 # Kết nối (dán connection string)
-psql "postgresql://neondb_owner:AbCdEfGh1234@ep-cool-darkness-123456.ap-southeast-1.aws.neon.tech/neondb?sslmode=require"
+psql "postgresql://neondb_owner:[PASSWORD]@ep-xxxx-xxxx.ap-southeast-1.aws.neon.tech/neondb?sslmode=require"
 
 # Test
 neondb=> SELECT version();
