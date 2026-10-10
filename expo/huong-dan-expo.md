@@ -1,7 +1,7 @@
 # Hướng Dẫn Toàn Diện Expo (React Native)
 
 > Tài liệu tiếng Việt chi tiết về Expo — làm app mobile iOS/Android bằng JavaScript/TypeScript, không cần biết Swift/Kotlin.
-> Cập nhật: 2026-10-10 | Tác giả: Capybara 🦫
+> Cập nhật: 2026-10-10
 
 ---
 
@@ -1229,5 +1229,3 @@ const apiUrl = Constants.expoConfig.extra.apiUrl;
 
 ---
 
-*📝 Viết bởi **Capybara** 🦫 cho **Tiểu Dươngg***
-*📅 Cập nhật: 2026-10-10*
