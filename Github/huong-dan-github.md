@@ -117,11 +117,11 @@ Kiểm tra: `git --version` → hiện số version là OK.
 **Cấu hình bắt buộc** (Git cần biết cậu là ai để ghi vào lịch sử commit):
 
 ```bash
-$ git config --global user.name "Tiểu Dươngg"
+$ git config --global user.name "An"
 $ git config --global user.email "gnoudisme@gmail.com"
 
 $ git config --list
-user.name=Tiểu Dươngg
+user.name=bạn
 user.email=gnoudisme@gmail.com
 ```
 
@@ -376,7 +376,7 @@ git show 7b2e4d0    # commit cụ thể (vài ký tự đầu của hash là đ�
 ```bash
 $ git show 7b2e4d0
 commit 7b2e4d0c1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d
-Author: Tiểu Dươngg <gnoudisme@gmail.com>
+Author: bạn <gnoudisme@gmail.com>
 Date:   Fri Oct 9 15:30:00 2026 +0700
 
     Thêm trang giỏ hàng
