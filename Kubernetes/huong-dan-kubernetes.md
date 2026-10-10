@@ -1,7 +1,6 @@
 # Hướng Dẫn Toàn Diện Kubernetes (K8s) ☸️
 
 > Tài liệu tiếng Việt chi tiết về Kubernetes — từ khái niệm đến deploy thực tế.
-> Tác giả: Capybara 🦫 cho Tiểu Dươngg
 
 ---
 
@@ -1253,4 +1252,3 @@ labels:
 
 ---
 
-*📝 Viết bởi **Capybara** 🦫 cho **Tiểu Dươngg** — 2026-10-10*
