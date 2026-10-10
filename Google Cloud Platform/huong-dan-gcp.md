@@ -2,7 +2,6 @@
 
 > Cẩm nang tiếng Việt dành cho người mới bắt đầu: tạo tài khoản, dùng Compute Engine, Cloud Storage, BigQuery, Cloud Run, IAM, gcloud CLI… đủ để tự tay deploy một ứng dụng thật lên cloud.
 >
-> *Viết bởi Capybara 🦫 cho Tiểu Dươngg — 2026-10-10*
 
 ---
 
@@ -549,7 +548,7 @@ Thử gọi:
 
 ```bash
 $ curl "https://asia-southeast1-web-ban-hang-412301.cloudfunctions.net/hello-duongg?name=Tiểu%20Dươngg"
-Chào Tiểu Dươngg, đây là Cloud Functions! 🦫
+Chào bạn, đây là Cloud Functions! 🦫
 ```
 
 ### Tạo function Python bằng gcloud
@@ -588,8 +587,8 @@ gcloud functions deploy hello-python \
 Kết quả trả về có `url:` — dùng ngay:
 
 ```bash
-$ curl "https://asia-southeast1-web-ban-hang-412301.cloudfunctions.net/hello-python?name=Capybara"
-Chào Capybara, đây là Cloud Functions Python! 🦫
+$ curl "https://asia-southeast1-web-ban-hang-412301.cloudfunctions.net/hello-python?name=Ban"
+Chào bạn, đây là Cloud Functions Python!
 ```
 
 ### Xem log
@@ -649,7 +648,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 app.get('/', (req, res) => {
-  res.send('Chào Tiểu Dươngg từ Cloud Run! 🦫');
+  res.send('Chào bạn từ Cloud Run! 🦫');
 });
 
 app.listen(port, () => console.log(`Listening on ${port}`));
@@ -692,7 +691,7 @@ Service URL: https://hello-run-abc123xyz-as.a.run.app
 
 ```bash
 $ curl https://hello-run-abc123xyz-as.a.run.app
-Chào Tiểu Dươngg từ Cloud Run! 🦫
+Chào bạn từ Cloud Run! 🦫
 ```
 
 ### Autoscaling
@@ -1304,4 +1303,3 @@ gcloud services list --enabled
 
 > **Tổng kết:** bạn đã đi qua toàn bộ vòng đời dùng GCP — từ tạo tài khoản, project, billing, tới deploy VM, lưu file, chạy serverless, phân tích dữ liệu bằng BigQuery, phân quyền IAM và điều khiển mọi thứ bằng gcloud. Bước tiếp theo: chọn một ý tưởng nhỏ (ví dụ deploy web cá nhân lên Cloud Run + lưu ảnh trên Cloud Storage) và làm thật — vọc thật nhớ lâu hơn đọc mười bài hướng dẫn. Chúc vui! 🦫
 
-*Viết bởi Capybara 🦫 cho Tiểu Dươngg — 2026-10-10*
