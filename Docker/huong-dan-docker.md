@@ -690,12 +690,12 @@ docker exec -it mydb psql -U myuser -d mydb
 ```
 ```sql
 mydb=# CREATE TABLE users (id SERIAL PRIMARY KEY, name TEXT);
-mydb=# INSERT INTO users (name) VALUES ('Tiểu Dươngg'), ('Capybara');
+mydb=# INSERT INTO users (name) VALUES ('An'), ('Bình');
 mydb=# SELECT * FROM users;
  id |    name
 ----+-------------
-  1 | Tiểu Dươngg
-  2 | Capybara
+  1 | bạn
+  2 | Bình
 mydb=# \q
 ```
 
@@ -711,8 +711,8 @@ docker run -d --name mydb2 \
   -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres:16
 
 docker exec -it mydb2 psql -U myuser -d mydb -c "SELECT * FROM users;"
-#  1 | Tiểu Dươngg
-#  2 | Capybara        <- data vẫn còn nguyên!
+#  1 | bạn
+#  2 | Bình        <- data vẫn còn nguyên!
 ```
 
 Dọn dẹp:
@@ -737,10 +737,10 @@ docker logs myredis --tail 3
 docker exec -it myredis redis-cli
 ```
 ```
-127.0.0.1:6379> SET ten "Tiểu Dươngg"
+127.0.0.1:6379> SET ten "An"
 OK
 127.0.0.1:6379> GET ten
-"Tiểu Dươngg"
+"An"
 127.0.0.1:6379> INCR dem
 (integer) 1
 127.0.0.1:6379> EXPIRE ten 60
