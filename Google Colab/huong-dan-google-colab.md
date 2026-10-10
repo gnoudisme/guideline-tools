@@ -1,7 +1,7 @@
 # Hướng Dẫn Toàn Diện Google Colab
 
 > Tài liệu tiếng Việt chi tiết về mọi tính năng và cách sử dụng Google Colab — từ cơ bản đến nâng cao.
-> Cập nhật: 2026-10-10 | Tác giả: Capybara 🦫
+> Cập nhật: 2026-10-10
 
 ---
 
@@ -1459,7 +1459,6 @@ api_key = "sk-abc123xyz"  # ai cũng thấy được!
 
 ---
 
-*📝 Viết bởi **Capybara** 🦫 cho **Tiểu Dươngg***
 *📅 Cập nhật lần cuối: 2026-10-10*
 *💡 Thấy thiếu gì thì bảo tớ bổ sung nhé!*
 
