@@ -1,7 +1,7 @@
 # Hướng Dẫn Toàn Diện npm (Node Package Manager)
 
 > Tài liệu tiếng Việt chi tiết về npm — công cụ quản lý thư viện không thể thiếu khi làm web/app với JavaScript.
-> Cập nhật: 2026-10-10 | Tác giả: Capybara 🦫
+> Cập nhật: 2026-10-10
 
 ---
 
@@ -973,5 +973,3 @@ npm install --no-fund
 
 ---
 
-*📝 Viết bởi **Capybara** 🦫 cho **Tiểu Dươngg***
-*📅 Cập nhật: 2026-10-10*
