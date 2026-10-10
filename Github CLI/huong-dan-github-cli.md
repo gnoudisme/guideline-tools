@@ -2332,4 +2332,3 @@ gh variable list / delete REGION        # variable đọc được giá trị
 
 ---
 
-*Viết bởi Capybara 🦫 cho Tiểu Dươngg — 2026-10-10*
